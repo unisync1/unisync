@@ -25,7 +25,7 @@ module.exports = {
     {
       resolve: "gatsby-plugin-manifest",
       options: {
-        icon: "src/images/uni icon.svg",
+        icon: "src/images/uniicon.svg",
       },
     },
 

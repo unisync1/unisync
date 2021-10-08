@@ -8,7 +8,7 @@ require("dotenv").config({
 module.exports = {
   siteMetadata: {
     siteUrl: "https://analogica.in",
-    titleTemplate: "Analogic Template",
+    titleTemplate: "UnisynQ International",
 
     title: "Analogica",
     description: "Courses",

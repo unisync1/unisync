@@ -21,21 +21,7 @@ function Index({data}) {
       <VideoBanner data={video_banner} />
       <WhatweDO data={what_we_do}/>
       <LeftOrRIght data={grid_left_or_right} />
-      {/* <LeftImage
-        title="consulting"
-        image=""
-        desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Et enim in cursus nec nunc diam mi id odio. Amet morbi amet velit ut. Sit in cras porta velit integer maecenas."
-      />
-      <RightImage
-        title="consulting"
-        image=""
-        desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Et enim in cursus nec nunc diam mi id odio. Amet morbi amet velit ut. Sit in cras porta velit integer maecenas."
-      />
-      <LeftImage
-        title="consulting"
-        image=""
-        desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Et enim in cursus nec nunc diam mi id odio. Amet morbi amet velit ut. Sit in cras porta velit integer maecenas."
-      /> */}
+
       <OurWork
          data={our_work}
       />

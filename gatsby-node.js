@@ -1,14 +1,9 @@
-// exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
-//     if (stage === "build-html" || "develop-html") {
-//       actions.setWebpackConfig({
-//         module: {
-//           rules: [
-//             {
-//               test: /wowjs/,
-//               use: loaders.null(),
-//             },
-//           ],
-//         },
-//       })
-//     }
-//   }
+exports.onCreateWebpackConfig = ({ actions, stage, plugins }) => {
+    if (stage === 'build-javascript' || stage === 'develop') {
+      actions.setWebpackConfig({
+        plugins: [
+          plugins.provide({ process: 'process/browser' })
+        ]
+      })
+    }
+  }

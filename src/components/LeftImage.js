@@ -18,7 +18,7 @@ function LeftImage(props) {
            {props.data.description}
          </ReactMarkdown>
         <div style={{display:"flex", marginTop: "1rem"}}>
-          <LinkTo path={props.data.button.link_or_slug}>{props.data.button.label}</LinkTo>
+          {props.data.button && <LinkTo path={props.data.button.link_or_slug}>{props.data.button.label}</LinkTo>}
         </div>
       </div>
     </Wrapper>

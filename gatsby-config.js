@@ -8,7 +8,7 @@ require("dotenv").config({
 module.exports = {
   siteMetadata: {
     siteUrl: "https://analogica.in",
-    titleTemplate: "Analogic Template",
+    titleTemplate: "UnisynQ International",
 
     title: "Analogica",
     description: "Courses",
@@ -25,7 +25,7 @@ module.exports = {
     {
       resolve: "gatsby-plugin-manifest",
       options: {
-        icon: "src/images/AnalogicaIcon.png",
+        icon: "src/images/uni icon.svg",
       },
     },
     // {

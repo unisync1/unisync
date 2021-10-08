@@ -1,8 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import HeadingBorderAnimation from "./HeadingBorderAnimation";
-import img from "../images/traing pic 1.png";
-import box from "../images/box.png";
+
 import News from "./News";
 import { GatsbyImage } from "gatsby-plugin-image";
 
@@ -218,7 +217,7 @@ const Wrapper = styled.div`
     border-radius: 5px;
     display: block;
     .gatsby-image-wrapper {
-      width: auto;
+      width: 100%;
       height: 302px;
       border-radius: 6px;
       @media (max-width: 479px) {

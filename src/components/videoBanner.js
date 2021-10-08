@@ -1,7 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import videos from "../images/video(4).mp4";
-// import Fade from "react-reveal/Fade"
 
 function Banner(props) {
   return (
@@ -19,23 +17,7 @@ function Banner(props) {
           </div>
         </div>
       </div>
-      {/* <div className="section">
-        <video className="bg__header" preload="auto" loop autoPlay muted>
-          <source src={videos} type="video/mp4" />
-          Your browser does not support HTML5 video.
-        </video>
-      </div>
-      <div className="heading">
-        <div className="section_title">
-          <Fade up>
-            <h1>
-              RIGHT<br></br> INSIGHTS
-            </h1>
-          </Fade>
-
-          <h2>CAN INSPIRE BRILLIANT IDEAS</h2>
-        </div>
-      </div> */}
+   
     </Wrapper>
   );
 }
@@ -70,14 +52,11 @@ const Wrapper = styled.div`
     flex-direction: column;
     place-content: center;
 
-    .text_border{
-       border-left: 4px solid var(--primaryColor)
-    }
+  
 
     h1 {
       font-size: 72px;
       font-weight: var(--NormalWeight);
-      border-left: 4px solid var(--primaryColor);
       color: white;
       letter-spacing: 0.05em;
       margin:0;
@@ -93,10 +72,9 @@ const Wrapper = styled.div`
       width: 50%;
       font-size: 32px;
       font-weight: var(--LightWeight);
-      background-color: var(--primaryColor);
       padding: 10px 10px;
       letter-spacing: 2px;
-      text-transform: uppercase;
+      text-transform: capitalize;
 
       margin:0;
       /* margin-top: -50px; */

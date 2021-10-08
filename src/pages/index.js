@@ -52,6 +52,10 @@ const Wrapper = styled.div`
   grid-column-gap: 5px;
   height: auto;
   place-items: center;
+
+  @media (max-width: 479px) {
+    grid-row-gap: 100px;
+  }
 `;
 
 export const query = graphql`

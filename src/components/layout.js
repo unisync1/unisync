@@ -4,7 +4,7 @@ import Footer from "./Footer";
 import SEO from "../components/Seo/seo";
 import GlobalStyles from "../styles/GlobalStyles";
 import TypographyStyles from "../styles/TypographyStyles";
-import Logo from "../images/uni logo white.svg";
+import Logo from "../images/uni white.svg";
 import '../styles/animate.css'
 
 

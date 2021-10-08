@@ -69,7 +69,7 @@ export const NavStyles = styled.nav`
    
     img {
       margin-left: 0px;
-      width: 200px !important;
+      width: 250px !important;
       margin-top:9px;
       @media (min-width: 768px) {
         width: 100px;

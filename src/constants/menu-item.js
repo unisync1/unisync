@@ -1,26 +1,15 @@
-import React from "react"
-import  {FaLinkedinIn}  from "@react-icons/all-files/fa/FaLinkedinIn"
-import  {FaInstagram}  from "@react-icons/all-files/fa/FaInstagram"
-import  {FaFacebookF}  from "@react-icons/all-files/fa/FaFacebookF"
-import {FaTwitter}  from "@react-icons/all-files/fa/FaTwitter"
+import React from "react";
+import { FaLinkedinIn } from "@react-icons/all-files/fa/FaLinkedinIn";
+import { FaInstagram } from "@react-icons/all-files/fa/FaInstagram";
+import { FaFacebookF } from "@react-icons/all-files/fa/FaFacebookF";
+import { FaTwitter } from "@react-icons/all-files/fa/FaTwitter";
 
 export const mainMenuItems = [
-
- 
-  {
-    path: "/what-we-do",
-    title: "what we do",
-  },
-  {
-    path: "/whoweare",
-    title: "who we are",
-  },
   {
     path: "/services",
     title: "services",
   },
-
-]
+];
 
 export const socialMenuItems = [
   {
@@ -38,15 +27,6 @@ export const socialMenuItems = [
     url: "https://twitter.com/analogicaXpress",
     name: "Twitter",
   },
-]
+];
 
-export const footerMenuItems = [
-  {
-    path: "/privacy",
-    title: "privacy",
-  },
-  {
-    path: "/cookies",
-    title: "cookies",
-  },
-]
+export const footerMenuItems = [];

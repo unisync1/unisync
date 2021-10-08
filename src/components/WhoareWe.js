@@ -1,12 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import img01 from "../images/whoweareright.png";
-import img02 from "../images/whoweareleft.png";
-import { Link } from "gatsby";
+
 import HeadingBorderAnimation from "./HeadingBorderAnimation";
-import LinkTo from "./LinkTo";
-import videos from "../images/testVideo.mp4";
-import rocket from "../images/rocket.jpg";
+
 
 <svg
   width="371"
@@ -29,9 +25,7 @@ function WhoWeAre(props) {
             <source src={props.data.left_video.localFile.publicURL} type="video/mp4" />
             Your browser does not support HTML5 video.
           </video>
-          <div className="rectangle_box">
-            <img src={props.data.left_bottom_imge.url} alt="" />
-          </div>
+      
         </div>
 
         <div className="section_middle">
@@ -52,9 +46,7 @@ function WhoWeAre(props) {
             <LinkTo path="/whatwedo">Learn More</LinkTo>{" "}
           </div> */}
         </div>
-        <div className="section_left">
-          <img className="left_image" src={props.data.right_image.url} alt="" />
-        </div>
+   
       </div>
     </Wrapper>
   );
@@ -76,7 +68,7 @@ const Wrapper = styled.div`
 
   .section {
     width: 100%;
-    height: 714.25px;
+    height: auto;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -100,7 +92,7 @@ const Wrapper = styled.div`
     justify-content: space-between;
     align-items: flex-start;
     align-content: flex-start;
-    height: 714.25px;
+    height: 500px;
     .right_image {
       width: 100%;
       height: auto;
@@ -140,7 +132,7 @@ const Wrapper = styled.div`
     justify-content: center;
     align-items: center;
     align-content: center;
-    height: 714.25px;
+    height: 500px;
     padding: 0 80px;
     @media (max-width: 767px) {
       padding: 0 20px;
@@ -200,7 +192,7 @@ const Wrapper = styled.div`
     justify-content: flex-end;
     align-items: flex-end;
     align-content: flex-end;
-    height: 714.25px;
+    height: 500px;
     padding-bottom: 70px;
     .left_image {
       width: 100%;

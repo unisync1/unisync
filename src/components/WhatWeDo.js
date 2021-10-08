@@ -57,7 +57,7 @@ const InnerConatiner = styled.div`
 
 
   h4 {
-    font-size: 42px;
+    font-size: 36px;
     font-weight: var(--LightWeight);
     letter-spacing: 0.05em;
     margin: 10px 0;

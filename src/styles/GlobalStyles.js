@@ -2,7 +2,7 @@ import { createGlobalStyle } from "styled-components"
 
 const GlobalStyles = createGlobalStyle`
 :root {
-    --family: "Poppins" !important;
+    --family: "Lato" !important;
     --HeavyWeight: 900;
     --LightWeight: 300;
     --NormalWeight: 600;
@@ -11,7 +11,7 @@ const GlobalStyles = createGlobalStyle`
     --transSlow: 0.5s;
     --black: #111111;
     --charcoal: #3e3e3e;
-    --primaryColor: #0011ff;
+    --primaryColor: #3A7BD5;
     --redColor: #ff002b;
     --greyColor: #f8f8f8;
     --headerColor: #0511F2;
@@ -51,7 +51,7 @@ const GlobalStyles = createGlobalStyle`
 }
 
 body {
-  font-family: "Poppins" !important;
+  font-family: "Lato" !important;
   margin: 0;
   padding:0;
 }

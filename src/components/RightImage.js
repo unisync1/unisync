@@ -3,18 +3,25 @@ import styled from "styled-components";
 import HeadingBorderAnimation from "./HeadingBorderAnimation";
 import { GatsbyImage } from "gatsby-plugin-image";
 import LinkTo from "./LinkTo";
-import ReactMarkdown from 'react-markdown'
+import ReactMarkdown from "react-markdown";
 function RightImage(props) {
   return (
     <Wrapper>
       <div className="right_image" key={props.key}>
-        <GatsbyImage image={props.data.media.localFile.childImageSharp.gatsbyImageData} alt="" />
-      </div> 
+        <GatsbyImage
+          image={props.data.media.localFile.childImageSharp.gatsbyImageData}
+          alt=""
+        />
+      </div>
       <div className="left_description">
         <HeadingBorderAnimation>{props.data.title}</HeadingBorderAnimation>
-          <ReactMarkdown>{props.data.description}</ReactMarkdown>
-        <div style={{display:"flex", marginTop: "1rem"}}>
-          <LinkTo path={props.data.button.link_or_slug}>{props.data.button.label}</LinkTo>
+        <ReactMarkdown>{props.data.description}</ReactMarkdown>
+        <div style={{ display: "flex", marginTop: "1rem" }}>
+          {props.data.button && (
+            <LinkTo path={props.data.button.link_or_slug}>
+              {props.data.button.label}
+            </LinkTo>
+          )}{" "}
         </div>
       </div>
     </Wrapper>
@@ -51,13 +58,12 @@ const Wrapper = styled.div`
     grid-area: 1/1/2/2;
     padding-right: 100px;
     display: flex;
-    flex-direction:column;
+    flex-direction: column;
     justify-content: center;
     @media (max-width: 767px) {
       grid-area: 2/1/3/3;
       padding-right: 0px;
-      margin-top: 15px
-
+      margin-top: 15px;
     }
     p {
       font-size: 22px;

@@ -3,31 +3,40 @@ import styled from "styled-components";
 import VideoBanner from "../components/videoBanner";
 import WhatweDO from "../components/WhatWeDo";
 import { useStaticQuery, graphql } from "gatsby";
-import RightImage from "../components/RightImage";
-import LeftImage from "../components/LeftImage";
+
 import OurWork from "../components/OurWork";
 import TechnologyStackCarousel from "../components/TechnologyStackCarousel";
-import logo from "../images/AnalogicaIcon.png"
 import WhoWeAre from "../components/WhoareWe";
 import WhatWeAreThinking from "../components/Whatweare";
-import LeftOrRIght  from "../components/LeftOrRIght";
+import LeftOrRIght from "../components/LeftOrRIght";
 
-function Index({data}) {
-
-  const {what_we_do, technology_stacks, our_work, grid_left_or_right, who_are_we,what_we_are, news, empowering_bottom_section, video_banner } = data.strapiHome
+function Index({ data }) {
+  const {
+    what_we_do,
+    technology_stacks,
+    our_work,
+    grid_left_or_right,
+    who_are_we,
+    what_we_are,
+    news,
+    empowering_bottom_section,
+    video_banner,
+  } = data.strapiHome;
 
   return (
     <Wrapper>
       <VideoBanner data={video_banner} />
-      <WhatweDO data={what_we_do}/>
+      <WhatweDO data={what_we_do} />
       <LeftOrRIght data={grid_left_or_right} />
 
-      <OurWork
-         data={our_work}
-      />
+      <OurWork data={our_work} />
       <TechnologyStackCarousel data={technology_stacks} />
-      <WhoWeAre data={who_are_we}/>
-      <WhatWeAreThinking data={what_we_are} news={news} bottom={empowering_bottom_section}/>
+      <WhoWeAre data={who_are_we} />
+      <WhatWeAreThinking
+        data={what_we_are}
+        news={news}
+        bottom={empowering_bottom_section}
+      />
     </Wrapper>
   );
 }
@@ -39,13 +48,11 @@ const Wrapper = styled.div`
   display: grid;
   grid-template-columns: repeat(11, 1fr);
   grid-template-rows: auto;
-  grid-row-gap: 100px;
+  grid-row-gap: 150px;
   grid-column-gap: 5px;
   height: auto;
   place-items: center;
 `;
-
-
 
 export const query = graphql`
   {
@@ -141,7 +148,7 @@ export const query = graphql`
           title
         }
       }
-      empowering_bottom_section{
+      empowering_bottom_section {
         title
         description
       }
@@ -158,4 +165,4 @@ export const query = graphql`
       }
     }
   }
-`
+`;

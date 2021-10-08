@@ -25,15 +25,10 @@ module.exports = {
     {
       resolve: "gatsby-plugin-manifest",
       options: {
-        icon: "src/images/AnalogicaIcon.png",
+        icon: "src/images/uni icon.svg",
       },
     },
-    // {
-    //   resolve: 'gatsby-plugin-load-script',
-    //   options: {
-    //     src: '/wow.min.js', // Change to the script filename
-    //   },
-    // },
+
     {
     resolve: `gatsby-source-strapi`,
     options: {

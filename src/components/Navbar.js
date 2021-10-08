@@ -1,18 +1,20 @@
-import React, { useState } from "react"
-import links from "../constants/link"
-import styled from "styled-components"
-import {Link} from "gatsby"
+import React, { useState } from "react";
+import links from "../constants/link";
+import styled from "styled-components";
+import { Link } from "gatsby";
 
 const Navbar = ({ Logo }) => {
-  const [isOpen, setNav] = useState(false)
+  const [isOpen, setNav] = useState(false);
 
   const toggleNav = () => {
-    setNav(isOpen => !isOpen)
-  }
+    setNav((isOpen) => !isOpen);
+  };
   return (
     <NavStyles>
       <div className="masthead">
-        <Link to="/"><img src={Logo} alt="Analogica Logo" /></Link>
+        <Link to="/">
+          <img src={Logo} alt="Analogica Logo" />
+        </Link>
         <button
           className={isOpen ? "toggle-btn toggle-btn-active" : "toggle-btn"}
           type="button"
@@ -28,15 +30,17 @@ const Navbar = ({ Logo }) => {
         {links.map((item, index) => {
           return (
             <li key={index}>
-              <Link onClick={toggleNav} to={item.path}>{item.text}</Link>
+              <Link onClick={toggleNav} to={item.path}>
+                {item.text}
+              </Link>
             </li>
-          )
+          );
         })}
         <LinkedTo to="/">Let's Connect</LinkedTo>
       </ul>
     </NavStyles>
-  )
-}
+  );
+};
 
 export const NavStyles = styled.nav`
   position: absolute;
@@ -46,37 +50,37 @@ export const NavStyles = styled.nav`
   width: 100%;
   left: 0;
   right: 0;
-  padding-top:1rem;
+  padding-top: 1rem;
   /* padding-left: 7rem;
     padding-right: 7rem; */
-    display: grid;
-    grid-template-columns: repeat(11, 1fr);
-    /* grid-template-rows: 70px; */
-    grid-column-gap: 5px;
+  display: grid;
+  grid-template-columns: repeat(11, 1fr);
+  /* grid-template-rows: 70px; */
+  grid-column-gap: 5px;
   box-sizing: border-box;
-   @media (max-width:991px){
-     /* padding-left: 2px; */
-   }
+  @media (max-width: 991px) {
+    /* padding-left: 2px; */
+  }
   .masthead {
     grid-area: 1/2/2/11;
     z-index: 3;
     width: 100%;
-    
-    @media (max-width: 479px){
+    margin-top: 1rem;
+
+    @media (max-width: 479px) {
       display: flex;
-    align-items: center;
+      align-items: center;
     }
-   
+
     img {
       margin-left: 0px;
       width: 250px !important;
-      margin-top:9px;
+      margin-top: 9px;
       @media (min-width: 768px) {
         width: 100px;
       }
-      @media (max-width:991px){
+      @media (max-width: 991px) {
         /* margin-left:30px; */
-
       }
       @media (min-width: 1200px) {
         width: 120px;
@@ -84,7 +88,7 @@ export const NavStyles = styled.nav`
     }
   }
   .nav-links {
-    grid-area:1/5/2/11;
+    grid-area: 1/5/2/11;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -109,7 +113,7 @@ export const NavStyles = styled.nav`
       font-weight: 400;
       margin-left: 0;
       padding: 0.75rem 0;
-      margin-top:-11px;
+      margin-top: -11px;
       a {
         text-decoration: none;
         text-transform: lowercase;
@@ -118,7 +122,6 @@ export const NavStyles = styled.nav`
         &.active {
           color: #e609b5;
         }
-       
       }
       &:hover {
         cursor: pointer;
@@ -140,7 +143,7 @@ export const NavStyles = styled.nav`
     background-color: #000000;
     border: none;
     cursor: pointer;
-    
+
     span {
       display: block;
       width: 30px;
@@ -189,24 +192,21 @@ export const NavStyles = styled.nav`
         margin-left: 1rem;
       }
     }
-    
   }
-`
+`;
 const LinkedTo = styled(Link)`
-   width:130px;
-   background-color: var(--primaryColor);
-   text-align: center;
-   text-decoration: none;
-   align-items:center;
-   align-self: center;
-   justify-content: center;
-   margin-left:15px;
-   padding-top:15px;
-   padding-bottom: 15px;
-   color: white;
-   border-radius: 5px;
-  
- 
-`
+  width: 130px;
+  background-color: var(--primaryColor);
+  text-align: center;
+  text-decoration: none;
+  align-items: center;
+  align-self: center;
+  justify-content: center;
+  margin-left: 15px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  color: white;
+  border-radius: 5px;
+`;
 
-export default Navbar
+export default Navbar;

@@ -4,12 +4,7 @@ import { FaInstagram } from "@react-icons/all-files/fa/FaInstagram";
 import { FaFacebookF } from "@react-icons/all-files/fa/FaFacebookF";
 import { FaTwitter } from "@react-icons/all-files/fa/FaTwitter";
 
-export const mainMenuItems = [
-  {
-    path: "/services",
-    title: "services",
-  },
-];
+export const mainMenuItems = [];
 
 export const socialMenuItems = [
   {
@@ -29,4 +24,20 @@ export const socialMenuItems = [
   },
 ];
 
-export const footerMenuItems = [];
+export const footerMenuItems = [
+  {
+    title: "Over Seas Education Consultancy",
+  },
+  {
+    title: "IELS & PTE Coaching",
+  },
+  {
+    title: "GRE Coaching",
+  },
+  {
+    title: "Internationalization Consultants for Universities",
+  },
+  {
+    title: "Study Tours",
+  },
+];

@@ -51,27 +51,14 @@ const Footer = ({ Logo }) => {
         {mainMenuItems || socialMenuItems || footerMenuItems ? (
           <div className="menus-cont">
             {/* If main menu items are being imported, render this */}
-            {mainMenuItems && (
-              <ul className="footer-menu">
-                {/* First we want to filter out the Home menu item, then display the rest of them */}
-                {mainMenuItems
-                  .filter((item) => {
-                    return item.title !== "home";
-                  })
-                  .map((item, index) => (
-                    <li key={`menuItem${index}`}>
-                      <Link to={item.path}>{item.title}</Link>
-                    </li>
-                  ))}
-              </ul>
-            )}
+       
 
             {/* If footer menu items are being imported, render this */}
             {footerMenuItems && (
               <ul className="footer-menu">
                 {footerMenuItems.map((item, index) => (
                   <li key={`footerMenuItem${index}`}>
-                    <Link to={item.path}>{item.title}</Link>
+                    <span>{item.title}</span>
                   </li>
                 ))}
               </ul>

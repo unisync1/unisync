@@ -12,7 +12,7 @@ module.exports = {
 
     title: "Analogica",
     description: "Courses",
-    author: "analogica",
+    author: "Interantional Education Services | Powered by Analogica Software Development Pvt.Ltd",
     authorSite: "",
     image: "../images/AnalogicaIcon.png",
     twitterUsername: "@analogica"

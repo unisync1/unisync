@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import links from "../constants/link";
 import styled from "styled-components";
 import { Link } from "gatsby";
+import FormDialog from "./FormDialog/FormDialog";
 
 const Navbar = ({ Logo }) => {
   const [isOpen, setNav] = useState(false);
@@ -27,7 +28,7 @@ const Navbar = ({ Logo }) => {
         </button>
       </div>
       <ul className={isOpen ? "nav-links show-nav" : "nav-links"}>
-        {links.map((item, index) => {
+        {/* {links.map((item, index) => {
           return (
             <li key={index}>
               <Link onClick={toggleNav} to={item.path}>
@@ -35,8 +36,8 @@ const Navbar = ({ Logo }) => {
               </Link>
             </li>
           );
-        })}
-        <LinkedTo to="/">Let's Connect</LinkedTo>
+        })} */}
+        <FormDialog id="letstalk" title="let's connect" />
       </ul>
     </NavStyles>
   );

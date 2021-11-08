@@ -26,10 +26,10 @@ export const socialMenuItems = [
 
 export const footerMenuItems = [
   {
-    title: "Over Seas Education Consultancy",
+    title: "OverSeas Education Consultancy",
   },
   {
-    title: "IELS & PTE Coaching",
+    title: "IELTS & PTE Coaching",
   },
   {
     title: "GRE Coaching",

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import styled from "styled-components";
+import { navigate } from "gatsby";
 
 export default class LetsTalk extends Component {
   constructor(props) {

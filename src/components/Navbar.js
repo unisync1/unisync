@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import links from "../constants/link";
 import styled from "styled-components";
 import { Link } from "gatsby";
+import FormDialog from "./FormDialog/FormDialog"
 
 const Navbar = ({ Logo }) => {
   const [isOpen, setNav] = useState(false);
@@ -37,6 +38,7 @@ const Navbar = ({ Logo }) => {
           );
         })} */}
         <LinkedTo to="/">Let's Connect</LinkedTo>
+        <FormDialog />
       </ul>
     </NavStyles>
   );

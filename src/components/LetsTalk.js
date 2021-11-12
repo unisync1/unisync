@@ -1,83 +1,129 @@
-import React from "react";
-import styled from "styled-components";
-import "./letstalk.css";
+// import React from "react";
+// import styled from "styled-components";
+// import "./letstalk.css";
 
-function LetsTalk(props) {
-  return (
-    <Wrapper>
-      <div className="left_spacing"></div>
-      <div className="main">
-        <div className="section_left">
-          <h2>Are you ready to take the next step?</h2>
-        </div>
-        <form
-          className="form"
-          name="Contact Form"
-          method="POST"
-          data-netlify="true"
-          action="/what-we-do"
-        >
-          <input type="hidden" name="form-name" value="Contact Form" />
+// function LetsTalk(props) {
+//   return (
 
-          <div className="main_row">
-            <div id="fancy-inputs" className="info">
-              <label className="input">
-                <input
-                  type="text"
-                  placeholder="Name *"
-                  name="name"
-                  required={true}
-                />
-                <span>{/* <span>Name</span> */}</span>
-              </label>
-              <label className="input">
-                <input
-                  placeholder="E-mail *"
-                  type="email"
-                  required={true}
-                  name="email"
-                />
-                <span>{/* <span>E-mail</span> */}</span>
-              </label>
-              <label className="input">
-                <textarea
-                  placeholder="Message *"
-                  name="message"
-                  rows="5"
-                  required={true}
-                  className="form-control"
-                ></textarea>
-                <span style={{ height: "100px" }}></span>
-              </label>
-            </div>
-            <div id="fancy-inputs" className="info1">
-              <label className="input">
-                <input type="phone" name="phone" placeholder="Phone" />
-                <span>{/* <span>Phone</span> */}</span>
-              </label>
-              <label className="input">
-                <input type="country" name="country" placeholder="Country" />
-                <span>{/* <span>Country</span> */}</span>
-              </label>
-              <label className="input">
-                <input type="city" name="city" placeholder="City" />
-                <span>{/* <span>City</span> */}</span>
-              </label>
-              <div className="button_submit">
-                <button type="submit" className="submit-btn">
-                  Submit
-                </button>
+//   );
+// }
+
+// export default LetsTalk;
+
+import React, { Component } from "react";
+import { navigate } from "gatsby";
+import styled from "styled-components"
+
+class LetsTalk extends Component {
+  constructor(props) {
+    super(props);
+    this.ContactForm = React.createRef();
+    this.state = {
+      name: "",
+      email: "",
+      message: "",
+    };
+  }
+  encode = (data) => {
+    return Object.keys(data)
+      .map(
+        (key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key])
+      )
+      .join("&");
+  };
+  handleSubmit = (event) => {
+    event.preventDefault();
+    const form = this.ContactForm.current;
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: this.encode({
+        "form-name": form.getAttribute("name"),
+        ...this.state,
+      }),
+    })
+      .then(() => navigate("/"))
+      .catch((error) => alert(error));
+
+    this.setState({
+      name: "",
+      email: "",
+      message: "",
+    });
+  };
+
+  render() {
+    return (
+      <Wrapper>
+        <div className="left_spacing"></div>
+        <div className="main">
+          <div className="section_left">
+            <h2>Are you ready to take the next step?</h2>
+          </div>
+          <form
+            className="form"
+            name="ContactForm"
+            data-netlify="true"
+          >
+            <input type="hidden" name="form-name" value="ContactForm" />
+
+            <div className="main_row">
+              <div id="fancy-inputs" className="info">
+                <label className="input">
+                  <input
+                    type="text"
+                    placeholder="Name *"
+                    name="name"
+                    required={true}
+                  />
+                  <span>{/* <span>Name</span> */}</span>
+                </label>
+                <label className="input">
+                  <input
+                    placeholder="E-mail *"
+                    type="email"
+                    required={true}
+                    name="email"
+                  />
+                  <span>{/* <span>E-mail</span> */}</span>
+                </label>
+                <label className="input">
+                  <textarea
+                    placeholder="Message *"
+                    name="message"
+                    rows="5"
+                    required={true}
+                    className="form-control"
+                  ></textarea>
+                  <span style={{ height: "100px" }}></span>
+                </label>
+              </div>
+              <div id="fancy-inputs" className="info1">
+                <label className="input">
+                  <input type="phone" name="phone" placeholder="Phone" />
+                  <span>{/* <span>Phone</span> */}</span>
+                </label>
+                <label className="input">
+                  <input type="country" name="country" placeholder="Country" />
+                  <span>{/* <span>Country</span> */}</span>
+                </label>
+                <label className="input">
+                  <input type="city" name="city" placeholder="City" />
+                  <span>{/* <span>City</span> */}</span>
+                </label>
+                <div className="button_submit">
+                  <button type="submit" className="submit-btn">
+                    Submit
+                  </button>
+                </div>
               </div>
             </div>
-          </div>
-
-          <input type="hidden" name="_next" value={props.url} />
-          <input type="hidden" name="_subject" value={props.value} />
-        </form>
-      </div>
-      <div className="right_spacing"></div>
-    </Wrapper>
-  );
+          </form>
+        </div>
+        <div className="right_spacing"></div>
+      </Wrapper>
+    );
+  }
 }
 
 export default LetsTalk;

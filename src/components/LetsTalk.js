@@ -10,71 +10,36 @@ function LetsTalk(props) {
         <div className="section_left">
           <h2>Are you ready to take the next step?</h2>
         </div>
-        <form name="inscription" netlify netlify-honeypot="bot-field" >
-          <div class="field">
-            <label>Nom *</label>
-            <div class="control">
-              <input
-                type="text"
-                class="input is-medium"
-                placeholder="Nom"
-                name="firstname"
-                required
-              />
-            </div>
-          </div>
-          <div class="field">
-            <label>Prénom *</label>
-            <div class="control">
-              <input
-                type="text"
-                class="input is-medium"
-                placeholder="Prénom"
-                name="lastname"
-                required
-              />
-            </div>
-          </div>
-          <div class="field">
-            <label>Adresse email *</label>
-            <div class="control">
-              <input
-                type="mail"
-                class="input is-medium"
-                placeholder="Adresse email"
-                name="email"
-                required
-              />
-            </div>
-          </div>
-          <div class="field">
-            <label>Téléphone</label>
-            <div class="control">
-              <input
-                type="tel"
-                class="input is-medium"
-                placeholder="Téléphone"
-                name="phone"
-                minlength="10"
-              />
-            </div>
-          </div>
-          <div class="field">
-            <label>Société</label>
-            <div class="control">
-              <input
-                type="text"
-                class="input is-medium"
-                placeholder="Société"
-                name="company"
-              />
-            </div>
-          </div>
-          <input
-            type="submit"
-            class="button is-fullwidth secondary-btn is-rounded"
-            value="Commencer"
-          />
+        <form name="contact" method="POST" data-netlify="true">
+          <input type="hidden" name="form-name" value="name_of_my_form" />
+
+          <p>
+            <label>
+              Your Name: <input type="text" name="name" />
+            </label>
+          </p>
+          <p>
+            <label>
+              Your Email: <input type="email" name="email" />
+            </label>
+          </p>
+          <p>
+            <label>
+              Your Role:{" "}
+              <select name="role[]" multiple>
+                <option value="leader">Leader</option>
+                <option value="follower">Follower</option>
+              </select>
+            </label>
+          </p>
+          <p>
+            <label>
+              Message: <textarea name="message"></textarea>
+            </label>
+          </p>
+          <p>
+            <button type="submit">Send</button>
+          </p>
         </form>
       </div>
       <div className="right_spacing"></div>

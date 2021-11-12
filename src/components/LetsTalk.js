@@ -28,7 +28,7 @@ function LetsTalk(props) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await fetch("/", {
+    const response = await fetch("/", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: encode({
@@ -36,7 +36,7 @@ function LetsTalk(props) {
         ...formState,
       }),
     })
-      .then(() => alert("Success"))
+      .then(() => console.log(response))
       .catch((error) => alert(error));
   };
   return (

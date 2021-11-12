@@ -28,7 +28,7 @@ function LetsTalk(props) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = await fetch("/", {
+    const response = await fetch("https://unisynq.com/", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: encode({

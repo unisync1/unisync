@@ -1,5 +1,5 @@
 import * as React from "react";
-import { navigate } from "gatsby-link";
+import { navigate } from "gatsby";
 import styled from "styled-components";
 
 function encode(data) {
@@ -11,7 +11,7 @@ function encode(data) {
 export default class Index extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { isValidated: false };
+    this.state = { isValidated: false, success: false };
   }
 
   handleChange = (e) => {
@@ -29,87 +29,99 @@ export default class Index extends React.Component {
         ...this.state,
       }),
     })
-      .then(() => navigate(form.getAttribute("action")))
+      .then(() => this.setState({ success: true }))
       .catch((error) => alert(error));
   };
 
   render() {
     return (
       <Wrapper>
-        <div className="left_spacing"></div>
-        <div className="main">
-          <div className="section_left">
-            <h2>Are you ready to take the next step?</h2>
-          </div>
-          <form
-            name="contact"
-            method="post"
-            action="/"
-            data-netlify="true"
-            data-netlify-honeypot="bot-field"
-            onSubmit={this.handleSubmit}
-          >
-            <input type="hidden" name="form-name" value="contact" />
-            <div hidden>
-              <label>
-                Don’t fill this out:{" "}
-                <input name="bot-field" onChange={this.handleChange} />
-              </label>
-            </div>
-            <div className="main_row">
-              <div id="fancy-inputs" className="info">
-                <label className="input">
-                  <input
-                    type="text"
-                    placeholder="Name *"
-                    name="name"
-                    required={true}
-                  />
-                  <span>{/* <span>Name</span> */}</span>
-                </label>
-                <label className="input">
-                  <input
-                    placeholder="E-mail *"
-                    type="email"
-                    required={true}
-                    name="email"
-                  />
-                  <span>{/* <span>E-mail</span> */}</span>
-                </label>
-                <label className="input">
-                  <textarea
-                    placeholder="Message *"
-                    name="message"
-                    rows="5"
-                    required={true}
-                    className="form-control"
-                  ></textarea>
-                  <span style={{ height: "100px" }}></span>
-                </label>
+        {!this.state.success ? (
+          <>
+            <div className="left_spacing"></div>
+            <div className="main">
+              <div className="section_left">
+                <h2>Are you ready to take the next step?</h2>
               </div>
-              <div id="fancy-inputs" className="info1">
-                <label className="input">
-                  <input type="phone" name="phone" placeholder="Phone" />
-                  <span>{/* <span>Phone</span> */}</span>
-                </label>
-                <label className="input">
-                  <input type="country" name="country" placeholder="Country" />
-                  <span>{/* <span>Country</span> */}</span>
-                </label>
-                <label className="input">
-                  <input type="city" name="city" placeholder="City" />
-                  <span>{/* <span>City</span> */}</span>
-                </label>
-                <div className="button_submit">
-                  <button type="submit" className="submit-btn">
-                    Submit
-                  </button>
+              <form
+                name="contact"
+                method="post"
+                action="/"
+                data-netlify="true"
+                data-netlify-honeypot="bot-field"
+                onSubmit={this.handleSubmit}
+              >
+                <input type="hidden" name="form-name" value="contact" />
+                <div hidden>
+                  <label>
+                    Don’t fill this out:{" "}
+                    <input name="bot-field" onChange={this.handleChange} />
+                  </label>
                 </div>
-              </div>
+                <div className="main_row">
+                  <div id="fancy-inputs" className="info">
+                    <label className="input">
+                      <input
+                        type="text"
+                        placeholder="Name *"
+                        name={"name"}
+                        required={true}
+                      />
+                      <span>{/* <span>Name</span> */}</span>
+                    </label>
+                    <label className="input">
+                      <input
+                        placeholder="E-mail *"
+                        type={"email"}
+                        required={true}
+                        name="email"
+                      />
+                      <span>{/* <span>E-mail</span> */}</span>
+                    </label>
+                    <label className="input">
+                      <textarea
+                        placeholder="Message *"
+                        name={"message"}
+                        rows="5"
+                        required={true}
+                        className="form-control"
+                      ></textarea>
+                      <span style={{ height: "100px" }}></span>
+                    </label>
+                  </div>
+                  <div id="fancy-inputs" className="info1">
+                    <label className="input">
+                      <input
+                        type={"phone"}
+                        name={"phone"}
+                        placeholder="Phone"
+                      />
+                      <span>{/* <span>Phone</span> */}</span>
+                    </label>
+                    <label className="input">
+                      <input
+                        type="country"
+                        name={"country"}
+                        placeholder="Country"
+                      />
+                      <span>{/* <span>Country</span> */}</span>
+                    </label>
+                    <label className="input">
+                      <input type="city" name={"city"} placeholder="City" />
+                      <span>{/* <span>City</span> */}</span>
+                    </label>
+                    <div className="button_submit">
+                      <button type="submit" className="submit-btn">
+                        Submit
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </form>
             </div>
-          </form>
-        </div>
-        <div className="right_spacing"></div>
+            <div className="right_spacing"></div>
+          </>
+        ): <h1>Form is submitted</h1>}
       </Wrapper>
       // <section className="section">
       //   <div className="container">
@@ -198,7 +210,7 @@ const Wrapper = styled.div`
   h2 {
     color: white !important;
   }
-  .form{
+  .form {
     width: 88%;
     display: flex;
     justify-content: center;
@@ -306,7 +318,7 @@ const Wrapper = styled.div`
   }
   button {
     float: right;
-    padding : 0px;
+    padding: 0px;
     padding: 10px 15px;
     margin: 20px 0 0;
     font-family: "Montserrat", sans-serif !important;
@@ -315,8 +327,8 @@ const Wrapper = styled.div`
     cursor: pointer;
     transition: all 0.3s;
     width: auto;
-    border-radius:6px;
-    margin-bottom:50px;
+    border-radius: 6px;
+    margin-bottom: 50px;
     font-size: 20px;
     border: 0px;
   }
@@ -328,7 +340,7 @@ const Wrapper = styled.div`
     float: left;
     width: 100%;
     margin: 0 0 50px 0;
-    padding : 0 20px;
+    padding: 0 20px;
     label.input {
       float: left;
       width: 250px;
@@ -450,4 +462,4 @@ const Wrapper = styled.div`
       }
     }
   }
-`
+`;

@@ -26,7 +26,11 @@ function Index({ data }) {
 
   return (
     <Wrapper>
-      <Seo description={what_we_do.description} title="Be Universal" />
+      <Seo
+        description={what_we_do.description}
+        title="Be Universal"
+        image="https://unisynq.com/static/7f0a4cfc44d8e44de81f3c87bd41cd89/1fa44/Scholarships_unisynq_com_3e66fcd5e3.png"
+      />
       <VideoBanner data={video_banner} />
       <WhatweDO data={what_we_do} />
       <LeftOrRIght data={grid_left_or_right} />

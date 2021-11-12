@@ -1,6 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import { navigate } from "gatsby";
+import Helmet from "react-helmet";
+
 function encode(data) {
   return Object.keys(data)
     .map((key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
@@ -29,13 +31,15 @@ function LetsTalk() {
   };
   return (
     <Wrapper>
+      <Helmet>
+        <body className="netlify__form" />
+      </Helmet>
       <form
         name="contact"
-        method="post"
+        method="POST"
         action="/thank-you"
         data-netlify="true"
         data-netlify-honeypot="bot-field"
-        onSubmit={handleSubmit}
       >
         {/* The `form-name` hidden field is required to support form submissions without JavaScript */}
         <input type="hidden" name="form-name" value="contact" />
@@ -67,7 +71,9 @@ function LetsTalk() {
           </label>
         </p>
         <p>
-          <button type="submit">Send</button>
+          <button type="submit" onClick={handleSubmit}>
+            Send
+          </button>
         </p>
       </form>
     </Wrapper>

@@ -66,6 +66,7 @@ export default class Index extends React.Component {
                         placeholder="Name *"
                         name={"name"}
                         required={true}
+                        onChange={this.handleChange}
                       />
                       <span>{/* <span>Name</span> */}</span>
                     </label>
@@ -75,6 +76,7 @@ export default class Index extends React.Component {
                         type={"email"}
                         required={true}
                         name="email"
+                        onChange={this.handleChange}
                       />
                       <span>{/* <span>E-mail</span> */}</span>
                     </label>
@@ -85,6 +87,7 @@ export default class Index extends React.Component {
                         rows="5"
                         required={true}
                         className="form-control"
+                        onChange={this.handleChange}
                       ></textarea>
                       <span style={{ height: "100px" }}></span>
                     </label>
@@ -95,6 +98,7 @@ export default class Index extends React.Component {
                         type={"phone"}
                         name={"phone"}
                         placeholder="Phone"
+                        onChange={this.handleChange}
                       />
                       <span>{/* <span>Phone</span> */}</span>
                     </label>
@@ -103,11 +107,17 @@ export default class Index extends React.Component {
                         type="country"
                         name={"country"}
                         placeholder="Country"
+                        onChange={this.handleChange}
                       />
                       <span>{/* <span>Country</span> */}</span>
                     </label>
                     <label className="input">
-                      <input type="city" name={"city"} placeholder="City" />
+                      <input
+                        type="city"
+                        name={"city"}
+                        placeholder="City"
+                        onChange={this.handleChange}
+                      />
                       <span>{/* <span>City</span> */}</span>
                     </label>
                     <div className="button_submit">
@@ -121,7 +131,9 @@ export default class Index extends React.Component {
             </div>
             <div className="right_spacing"></div>
           </>
-        ): <h1>Form is submitted</h1>}
+        ) : (
+          <h1>Form is submitted</h1>
+        )}
       </Wrapper>
       // <section className="section">
       //   <div className="container">

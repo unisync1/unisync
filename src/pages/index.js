@@ -9,6 +9,7 @@ import TechnologyStackCarousel from "../components/TechnologyStackCarousel";
 import WhoWeAre from "../components/WhoareWe";
 import WhatWeAreThinking from "../components/Whatweare";
 import LeftOrRIght from "../components/LeftOrRIght";
+import Seo from "../components/Seo/seo";
 
 function Index({ data }) {
   const {
@@ -25,6 +26,7 @@ function Index({ data }) {
 
   return (
     <Wrapper>
+      <Seo description={what_we_do.description} title="Be Universal" />
       <VideoBanner data={video_banner} />
       <WhatweDO data={what_we_do} />
       <LeftOrRIght data={grid_left_or_right} />

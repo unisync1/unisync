@@ -80,7 +80,7 @@ const Button = styled.button`
   align-items: center;
   align-self: center;
   justify-content: center;
-  margin-left: 2rem;
+  /* margin-left: 2rem; */
   color: #fff;
   font-size: 18px;
   border: none;

@@ -13,9 +13,9 @@ function WhatweDO(props) {
         <ReactMarkdown>
          {props.data.description}
         </ReactMarkdown>
-        <LinkTo path={props.data.button.link_or_slug} delay=".4s">
+        {/* <LinkTo path={props.data.button.link_or_slug} delay=".4s">
             {props.data.button.label}
-          </LinkTo>
+          </LinkTo> */}
         
       </InnerConatiner>
     </Container>

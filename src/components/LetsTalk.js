@@ -26,9 +26,9 @@ function LetsTalk(props) {
     });
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit =  (e) => {
     e.preventDefault();
-    const response = await fetch("https://unisynq.com/", {
+    fetch("https://unisynq.com/", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: encode({
@@ -36,7 +36,7 @@ function LetsTalk(props) {
         ...formState,
       }),
     })
-      .then(() => console.log(response))
+      .then(() => navigate("/thank-you"))
       .catch((error) => alert(error));
   };
   return (

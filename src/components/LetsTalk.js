@@ -3,29 +3,71 @@ import styled from "styled-components";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import "./letstalk.css";
 import { navigate } from "gatsby";
+import { formatMs } from "@material-ui/core";
 
 function LetsTalk(props) {
+  const [formState, setFormState] = React.useState({
+    name: "",
+    email: "",
+  });
+
+  const encode = (data) => {
+    return Object.keys(data)
+      .map(
+        (key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key])
+      )
+      .join("&");
+  };
+
+  const handleChange = (e) => {
+    setFormState({
+      ...formState,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: encode({
+        "form-name": "contact",
+        ...formState,
+      }),
+    })
+      .then(() => alert("Success"))
+      .catch((error) => alert(error));
+  };
   return (
     <Wrapper>
       <form
+        onSubmit={handleSubmit}
+        data-netlify="true"
         name="contact"
-        action="/contact"
-        method="POST"
-        netlify
-        netlify-honeypot="bot-field"
+        method="post"
+        data-netlify-honeypot="bot-field"
       >
         <input type="hidden" name="form-name" value="contact" />
-
-        <input type="text" name="name" placeholder="name" required />
-        <input type="email" name="email" placeholder="email" required />
-        <textarea
-          name="message"
-          placeholder="Message"
-          cols="30"
-          rows="10"
-          required
-        ></textarea>
-        <button type="submit">send a message</button>
+        <label htmlFor="name">Name</label>
+        <input
+          id="name"
+          type="text"
+          name="name"
+          onChange={handleChange}
+          value={formState.name}
+          placeholder="enter your name"
+        />
+        <label htmlFor="email">e-mail</label>
+        <input
+          id="email"
+          type="email"
+          name="email"
+          onChange={handleChange}
+          value={formState.email}
+          placeholder="enter your email"
+        />
+        <button type="submit">submit</button>
       </form>
     </Wrapper>
   );

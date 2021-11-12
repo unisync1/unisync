@@ -3,15 +3,16 @@ import styled from "styled-components";
 import { Link } from "gatsby";
 import HeadingBorderAnimation from "./HeadingBorderAnimation";
 import LinkTo from "./LinkTo";
+import ReactMarkdown from "react-markdown";
 
 function WhatweDO(props) {
   return (
     <Container>
       <InnerConatiner>
         <HeadingBorderAnimation delay=".2s">{props.data.title}</HeadingBorderAnimation>
-        <h4 className="wow fadeInUp" data-wow-delay=".4s">
+        <ReactMarkdown>
          {props.data.description}
-        </h4>
+        </ReactMarkdown>
         <LinkTo path={props.data.button.link_or_slug} delay=".4s">
             {props.data.button.label}
           </LinkTo>

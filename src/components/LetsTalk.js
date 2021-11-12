@@ -9,7 +9,7 @@ function LetsTalk(props) {
     <Wrapper>
       <form
         name="contact"
-        action="/"
+        action="/contact"
         method="POST"
         netlify
         netlify-honeypot="bot-field"

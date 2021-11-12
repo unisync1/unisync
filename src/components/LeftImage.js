@@ -3,6 +3,8 @@ import styled from "styled-components";
 import HeadingBorderAnimation from "./HeadingBorderAnimation";
 import { GatsbyImage } from "gatsby-plugin-image";
 import LinkTo from "./LinkTo";
+import FormDialog from "./FormDialog/FormDialog";
+
 import ReactMarkdown from "react-markdown";
 
 function LeftImage(props) {

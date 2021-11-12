@@ -26,7 +26,7 @@ const Wrapper = styled.div`
     font-weight: var(--NormalWeight) !important;
     color: #fff;
   }
-  h4 {
+  h4, p {
     margin: 0;
     font-weight: var(--LightWeight) !important;
     font-size: 13px !important;

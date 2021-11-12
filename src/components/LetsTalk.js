@@ -32,7 +32,7 @@ function LetsTalk() {
       <form
         name="contact"
         method="post"
-        action="/"
+        action="/thank-you"
         data-netlify="true"
         data-netlify-honeypot="bot-field"
         onSubmit={handleSubmit}

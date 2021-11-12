@@ -20,7 +20,7 @@ export default function FormDialog(props) {
   return (
     <Wrapper>
       <Button variant="outlined" color="primary" onClick={handleClickOpen}>
-        Let's Connect
+        {props.title}
       </Button>
 
       <Dialog

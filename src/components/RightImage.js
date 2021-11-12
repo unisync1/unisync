@@ -4,6 +4,7 @@ import HeadingBorderAnimation from "./HeadingBorderAnimation";
 import { GatsbyImage } from "gatsby-plugin-image";
 import LinkTo from "./LinkTo";
 import ReactMarkdown from "react-markdown";
+import FormDialog from "./FormDialog/FormDialog";
 function RightImage(props) {
   return (
     <Wrapper>
@@ -17,11 +18,7 @@ function RightImage(props) {
         <HeadingBorderAnimation>{props.data.title}</HeadingBorderAnimation>
         <ReactMarkdown>{props.data.description}</ReactMarkdown>
         <div style={{ display: "flex", marginTop: "1rem" }}>
-          {props.data.button && (
-            <LinkTo path={props.data.button.link_or_slug}>
-              {props.data.button.label}
-            </LinkTo>
-          )}{" "}
+           <FormDialog title="Learn More" />
         </div>
       </div>
     </Wrapper>

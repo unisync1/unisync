@@ -19,11 +19,7 @@ function LeftImage(props) {
         <p>{props.desc}</p>
         <ReactMarkdown>{props.data.description}</ReactMarkdown>
         <div style={{ display: "flex", marginTop: "1rem" }}>
-          {props.data.button && (
-            <LinkTo path={props.data.button.link_or_slug}>
-              {props.data.button.label}
-            </LinkTo>
-          )}{" "}
+          <FormDialog title="Learn More" />
         </div>
       </div>
     </Wrapper>

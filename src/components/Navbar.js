@@ -37,7 +37,7 @@ const Navbar = ({ Logo }) => {
             </li>
           );
         })} */}
-        <FormDialog />
+        <FormDialog title="Let's Connect" />
       </ul>
     </NavStyles>
   );

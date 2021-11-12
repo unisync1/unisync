@@ -1,57 +1,80 @@
-import React, { Component } from "react";
+import React from "react";
 import styled from "styled-components";
 import { navigate } from "gatsby";
+function encode(data) {
+  return Object.keys(data)
+    .map((key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+    .join("&");
+}
 
-export default class LetsTalk extends Component {
-  constructor(props) {
-    super(props);
-    this.ContactForm = React.createRef();
-    this.state = {
-      name: "",
-      email: "",
-    };
-  }
-
-  encode = (data) => {
-    return Object.keys(data)
-      .map(
-        (key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key])
-      )
-      .join("&");
+function LetsTalk() {
+  const [state, setState] = React.useState({});
+  const handleChange = (e) => {
+    setState({ ...state, [e.target.name]: e.target.value });
   };
-  handleSubmit = (event) => {
-    event.preventDefault();
-    const form = this.ContactForm.current;
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const form = e.target;
     fetch("/", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: this.encode({
+      body: encode({
         "form-name": form.getAttribute("name"),
-        ...this.state,
+        ...state,
       }),
     })
-      .then(() => navigate("/"))
+      .then(() => navigate(form.getAttribute("action")))
       .catch((error) => alert(error));
-
-    this.setState({
-      name: "",
-      email: "",
-    });
   };
-
-  render() {
-    return (
-      <Wrapper>
-        <form onSubmit={this.handleSubmit} netlify>
-          <input type="hidden" name="form-name" value="contact" />
-          <input type="text" name="name" ref={this.ContactForm} />
-          <input type="email" name="email" ref={this.ContactForm} />
-          <button type="submit">submit</button>
-        </form>
-      </Wrapper>
-    );
-  }
+  return (
+    <Wrapper>
+      <form
+        name="contact"
+        method="post"
+        action="/"
+        data-netlify="true"
+        data-netlify-honeypot="bot-field"
+        onSubmit={handleSubmit}
+      >
+        {/* The `form-name` hidden field is required to support form submissions without JavaScript */}
+        <input type="hidden" name="form-name" value="contact" />
+        <p hidden>
+          <label>
+            Don’t fill this out:{" "}
+            <input name="bot-field" onChange={handleChange} />
+          </label>
+        </p>
+        <p>
+          <label>
+            Your name:
+            <br />
+            <input type="text" name="name" onChange={handleChange} />
+          </label>
+        </p>
+        <p>
+          <label>
+            Your email:
+            <br />
+            <input type="email" name="email" onChange={handleChange} />
+          </label>
+        </p>
+        <p>
+          <label>
+            Message:
+            <br />
+            <textarea name="message" onChange={handleChange} />
+          </label>
+        </p>
+        <p>
+          <button type="submit">Send</button>
+        </p>
+      </form>
+    </Wrapper>
+  );
 }
+
+export default LetsTalk;
 
 const Wrapper = styled.div`
   width: 100%;

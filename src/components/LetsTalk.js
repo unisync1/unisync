@@ -1,6 +1,7 @@
 import * as React from "react";
 import { navigate } from "gatsby";
 import styled from "styled-components";
+import "./letstalk.css"
 
 function encode(data) {
   return Object.keys(data)

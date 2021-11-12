@@ -1,48 +1,72 @@
 import React from "react";
 import styled from "styled-components";
+import { Formik, Form, Field, ErrorMessage } from "formik";
 import "./letstalk.css";
 
 function LetsTalk(props) {
+  const encode = (data) => {
+    return Object.keys(data)
+      .map(
+        (key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key])
+      )
+      .join("&");
+  };
   return (
     <Wrapper>
-      <div className="left_spacing"></div>
-      <div className="main">
-        <div className="section_left">
-          <h2>Are you ready to take the next step?</h2>
-        </div>
-        <form name="contact" method="POST" data-netlify="true">
-          <input type="hidden" name="form-name" value="name_of_my_form" />
+      <Formik
+        initialValues={{
+          name: "",
+          email: "",
+          message: "",
+        }}
+        onSubmit={(values, actions) => {
+          fetch("/", {
+            method: "POST",
+            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+            body: encode({ "form-name": "contact-demo", ...values }),
+          })
+            .then(() => {
+              alert("Success");
+              actions.resetForm();
+            })
+            .catch(() => {
+              alert("Error");
+            })
+            .finally(() => actions.setSubmitting(false));
+        }}
+        validate={(values) => {
+          const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
+          const errors = {};
+          if (!values.name) {
+            errors.name = "Name Required";
+          }
+          if (!values.email || !emailRegex.test(values.email)) {
+            errors.email = "Valid Email Required";
+          }
+          if (!values.message) {
+            errors.message = "Message Required";
+          }
+          return errors;
+        }}
+      >
+        {() => (
+          <Form name="contact-demo" data-netlify={true}>
+            <label htmlFor="name">Name: </label>
+            <Field name="name" />
+            <ErrorMessage name="name" />
 
-          <p>
-            <label>
-              Your Name: <input type="text" name="name" />
-            </label>
-          </p>
-          <p>
-            <label>
-              Your Email: <input type="email" name="email" />
-            </label>
-          </p>
-          <p>
-            <label>
-              Your Role:{" "}
-              <select name="role[]" multiple>
-                <option value="leader">Leader</option>
-                <option value="follower">Follower</option>
-              </select>
-            </label>
-          </p>
-          <p>
-            <label>
-              Message: <textarea name="message"></textarea>
-            </label>
-          </p>
-          <p>
+            <label htmlFor="email">Email: </label>
+            <Field name="email" />
+            <ErrorMessage name="email" />
+
+            <label htmlFor="message">Message: </label>
+            <Field name="message" component="textarea" />
+            <ErrorMessage name="message" />
+
             <button type="submit">Send</button>
-          </p>
-        </form>
-      </div>
-      <div className="right_spacing"></div>
+          </Form>
+        )}
+      </Formik>
     </Wrapper>
   );
 }

@@ -12,7 +12,7 @@ function TechnologyStackCarousel(props) {
     slidesToScroll: 1,
     autoplay: true,
     speed: 4500,
-    autoplaySpeed: 3000,
+    autoplaySpeed: 4500,
     cssEase: "linear",
     pauseOnHover: false,
 
@@ -72,17 +72,16 @@ const Wrapper = styled.div`
   grid-area: auto/2/auto/11;
   @media (max-width: 479px) {
     width: 100%;
+    grid-area: auto/1/auto/12;
   }
   @media (max-width: 767px) {
     margin: 0px;
   }
   .first {
-    width: 150px !important;
+    width: 180px !important;
 
     height: auto;
-    @media (max-width: 479px) {
-      width: 100% !important;
-    }
+ 
   }
   .heading {
     padding: 10px 0;

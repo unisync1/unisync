@@ -70,9 +70,13 @@ const Wrapper = styled.div`
 
   .image_wrapper {
     display: block;
+    img{
+      width: 100%;
+      height: 100%;
+      object-fit: contain !important;
+    }
     .gatsby-image-wrapper {
       width: auto;
-      height: 240px;
       border-radius: 6px;
     }
   }

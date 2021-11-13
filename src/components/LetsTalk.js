@@ -1,5 +1,4 @@
 import * as React from "react";
-import { navigate } from "gatsby";
 import styled from "styled-components";
 import "./letstalk.css"
 
@@ -334,8 +333,7 @@ const Wrapper = styled.div`
     padding: 0px;
     padding: 10px 15px;
     margin: 20px 0 0;
-    font-family: "Montserrat", sans-serif !important;
-    background: var(--thirdColor);
+    font-family: var(--family);
     color: var(--secondaryColor);
     cursor: pointer;
     transition: all 0.3s;
@@ -346,7 +344,7 @@ const Wrapper = styled.div`
     border: 0px;
   }
   button:hover {
-    background: var(--purpleColor);
+    background: #000;
     color: #f1f1f1;
   }
   #fancy-inputs {

@@ -212,7 +212,7 @@ const Wrapper = styled.div`
   }
   .rectangle_box {
     width: 100%;
-    height: 302px;
+    height: auto;
     background-color: #000000;
     border-radius: 5px;
     display: block;
@@ -230,8 +230,9 @@ const Wrapper = styled.div`
     }
     img {
       width: 100%;
-      height: 302px;
-
+      @media (max-width: 1600px) {
+        object-fit: contain !important;
+      }
       @media (max-width: 479px) {
         height: auto;
       }

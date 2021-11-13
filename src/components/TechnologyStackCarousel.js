@@ -11,8 +11,8 @@ function TechnologyStackCarousel(props) {
     slidesToShow: 5,
     slidesToScroll: 1,
     autoplay: true,
-    speed: 2000,
-    autoplaySpeed: 2000,
+    speed: 4500,
+    autoplaySpeed: 3000,
     cssEase: "linear",
     pauseOnHover: false,
 

@@ -58,6 +58,7 @@ const Wrapper = styled.div`
   grid-column-gap: 5px;
   height: auto;
   place-items: center;
+  overflow: hidden;
 
   @media (max-width: 479px) {
     grid-row-gap: 100px;
